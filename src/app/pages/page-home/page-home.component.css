@@ -1,0 +1,87 @@
+/* Votre style de conteneur existant */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid black;
+  width: 100%;
+  margin: auto;
+  padding: 20px;
+}
+
+/* Nouveau style pour le tableau */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+th {
+  background-color: #f2f2f2;
+  color: black;
+  padding: 15px;
+  text-align: left;
+}
+
+td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+tr:hover {
+  background-color: #f5f5f5;
+}
+
+.btn {
+  margin-right: 10px;
+}
+
+@media only screen and (max-width: 600px) {
+  /* Forcer le tableau à ne pas déborder */
+  table {
+    width: 100%;
+    display: block;
+  }
+
+  /* Rendre les cellules de tableau comme des blocs */
+  thead,
+  tbody,
+  th,
+  td,
+  tr {
+    display: block;
+  }
+
+  /* Masquer les en-têtes de tableau */
+  thead tr {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+
+  /* Afficher les rows en format bloc */
+  tr {
+    margin: 0 0 1rem 0;
+  }
+
+  /* Afficher les cellules du tableau comme des blocs, empilées verticalement */
+  td {
+    /* Couper les cellules en blocs pour qu'elles aient leur propre ligne */
+    margin-bottom: 0.625rem;
+    position: relative;
+    padding-left: 50%;
+  }
+
+  /* Ajouter une étiquette de données avant chaque cellule */
+  td:before {
+    /* Utiliser la valeur de l'attribut "data-label" pour la chaîne de contenu */
+    content: attr(data-label);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    padding-left: 0.625rem;
+    font-weight: bold;
+  }
+}

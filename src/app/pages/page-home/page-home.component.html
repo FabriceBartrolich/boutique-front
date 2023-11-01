@@ -1,0 +1,36 @@
+<div class="container">
+  <button *ngIf="isLoggedIn" class="btn btn-success" (click)="ajouter()">
+    Ajouter un produit
+  </button>
+  <div class="table-responsive">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Nom</th>
+          <th scope="col">Prix</th>
+          <th scope="col">Quantité</th>
+          <th scope="col">Catégorie</th>
+          <th scope="col" *ngIf="isLoggedIn">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of products">
+          <td data-label="#">{{ item.id }}</td>
+          <td data-label="Nom">{{ item.name }}</td>
+          <td data-label="Prix">{{ item.price }}</td>
+          <td data-label="Quantité">{{ item.quantity }}</td>
+          <td data-label="Catégorie">{{ item.genre.name }}</td>
+          <td *ngIf="isLoggedIn">
+            <button class="btn btn-primary" (click)="modifier(item.id)">
+              Modifier
+            </button>
+            <button class="btn btn-danger" (click)="supprimer(item.id)">
+              Supprimer
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
